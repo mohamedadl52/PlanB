@@ -1,201 +1,34 @@
 <template>
-   <div class="overflow-hidden">
-    <div  :style="{background :`url(${test})` , filter : 'hue-rotate(-194deg)' , position: 'relative' ,  backgroundSize: 'cover'  }" class="relative h-100 lg:h-screen pb-10 bg-cover  w-full  ">
-       <img class="w-full lg:hidden" height="200px" src="../assets//images//key7.jpg" alt="">
-       
-       
-       <div  class="flex flex-col container justify-center lg:flex-row lg:justify-center " >
-           <div class=" ml-5 lg:mt-64">
-               <h1 style="color:rgb(19, 255, 255)" class="text-white lg:text-3xl  uppercase text-3xl text-center my-2 text-bold ">PRO STORE</h1>
-               <h1 style="color:rgb(255, 255, 255)" class="text-white   uppercase text-lg text-bold ">اكبر متجر متكامل لكل المنتجات  في السودان </h1>
-              <div class="flex justify-center">
-                <router-link  to="/shop">
-                    <button style="border: 1px solid blueviolet; border-radius: 10px;" class="text-white   uppercase text-xl p-2 mt-4 w-64  text-bold">
-                تسوق الان 
-               </button>
-                </router-link>   
-              </div>  
-            </div>
-            <div  class="lg:w-1/2">
-              <!-- <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div v-for="product in filteredCardItems" :key="product.id" class="swiper-slide">
-        <img :src="getImageUrl(product.img_url[0])" class="w-full h-56 object-contain mx-auto" alt="">
-        <h3>{{ product.title }}</h3>
-        <p v-html="product.description"></p>
-      </div>
+    <div style= "background: linear-gradient(151deg, rgb(0 0 0 / 90%) 61%, rgb(165 34 187))" class="w-auto h-screen  flex justify-center items-center">
+     <div class=" uppercase text-white ">
+        <p style="text-decoration-color : rgb(165 34 187) ,  text-decoration-thickness: 18px " class="underline  text-9xl mb-10" >Plan B</p> 
+       <p class="text-4xl text-center">لتنظيم المناسبات والفعاليات والبازرات</p>
+      <p>
+        <span> icon</span>
+        <span>
+            plann_b_team
+        </span>
+      </p>   
     </div>
-    <div class="swiper-pagination"></div>
-  </div> -->
-            </div>
+    </div>
+    <div style= "background: linear-gradient(151deg, rgb(0 0 0 / 90%) 61%, rgb(165 34 187))" class="w-auto h-screen  p-10">
+     <div class=" uppercase text-white ">
+        <p class=" border p-2 border-2 border-white">
+            plan b
+        </p>
+
+        <div>
+            <p class="text-right">نبذه عن الشركة </p>
+            <p class="w-64">شركة بالن بي لتنظيم المناسبات والفعاليات والبازارات هي
+شركة سودانية رائدة في مجال تنظيم وإدارة الفعاليات
+المتنوعة. تأسست الشركة لتلبية الحاجة المتزايدة لتنظيم
+فعاليات عالية الجودة ومبتكرة في السودان، ومصر، والمملكة
+العربية السعودية.</p>
         </div>
     </div>
-        <div class="mt-20 ">
-                <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> اخر المنتجات >  </h1>
-
-              <div v-if="carditem" class="flex gap-4 mt-2 flex-wrap flex-row-reverse justify-center">
-          
-                
-                <Card v-for="item in filteredCardItems" :key="item._id" 
-          :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />  
-        
-        ``</div>
-              
-        <!-- <div data-aos="zoom-out-up" class="mt-20">
-            <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor ">  الافضل >  </h1>
-
-              <div class="flex gap-4 mt-2 flex-wrap justify-center">
-                <prodduct v-for="item in carditem"  :key="item.id" :name="item.name" :price="item.price"  />
-              </div>
-               
-        </div> -->
-
-        <p class="text-blue-500 text-xl font-bol
-         ml-20 mt-2">عرض المزيد</p>
-        
-
     </div>
-        <div class="mt-20 ">
-                <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor "> منتجات الهواتف >  </h1>
-
-              <div v-if="carditem" class="flex gap-4 mt-2 flex-wrap flex-row justify-center">
-            
-             
-                <Card v-for="item in filterephoensItems" :key="item._id" 
-          :productImg="item.img_url[0]" :idProduct="item._id" :title="item.title" :price="item.price" />   </div>
-              
-        <!-- <div data-aos="zoom-out-up" class="mt-20">
-            <h1 style="direction: rtl;" class="text-2xl  px-5 font-bold text-maincolor ">  الافضل >  </h1>
-
-              <div class="flex gap-4 mt-2 flex-wrap justify-center">
-                <prodduct v-for="item in carditem"  :key="item.id" :name="item.name" :price="item.price"  />
-              </div>
-               
-        </div> -->
-
-        <p class="text-blue-500 text-xl font-bol
-         ml-20 mt-2 mb-10">عرض المزيد</p>
-        
-
-    </div>
-   </div>
 </template>
 
-<script setup>
-// import AOS from 'aos'
-//  import prodduct from '../components/carD.vue'
-// import { onMounted, ref  } from 'vue'
-import tessst from "../assets//images//key7.jpg";
-// import store from '../store'
-import {ref , onMounted , computed} from 'vue'
-import Card from '../components/carD.vue';
-import store from '../store/index'
-import Swiper from 'swiper';
-let carditem = ref([])
-let test = tessst
-let getProduct = ()=>{
+<style  scoped>
 
-  store.dispatch('product/get').then((res)=>{
-    console.log(res)
-    carditem.value = res.reverse()
-  })
-  
-}
-
-
-const filteredCardItems = computed(() => {
-      return carditem.value.slice(0, 3); // Returns the first 3 items from carditem array
-    });
-
-
-const filterephoensItems = computed(() => {
-  return carditem.value.filter(item => item.catogres._id == "66ab7a9d86053eabe1abd716" ).slice(0,3).reverse();
-    });
-
-
-// const getImageUrl = (img) => `https://res.cloudinary.com/dekh1kgki/image/upload/v1722212103/${img}.png`;
-   
-onMounted(() => {
- new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-      delay: 5000, // 5 seconds delay between slides
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
-});
-onMounted(() => {
-  getProduct()
-    });
-
-// export default {
-//     components :{
-//         // prodduct
-//     } ,
-//     data(){
-//         return {
-//        test : tessst ,
-//      carditem : [] 
-//         }
-//     } ,
-//    computed :  {
-//      getProduct : ()=>{
-
-// store.dispatch('product/get').then((res)=>{
-// console.log(this.carditem)
-// console.log(res)
-// })
-
-// }
-//    } , 
-//    created (){
-//     this.getProduct
-//    }
-   
-
-
-    
-// }
-</script>
-<style scoped>
-/* Add any custom styling for the slider here */
-
-
-.imfly {
-    animation: bgfly 2s infinite;
-}
-.background {
-  background-image: url("../src/assets/images/key7.jpg");
- /* filter  :   hue-rotate(-194deg) ; 
-  background-size: cover;
-  width: 100%;
-  height: 83vh;
-  position: relative; */
-}
-@keyframes bgfly {
-    0% {
-   transform: translateY(8px);
-}
-50% {
-    
-    transform: translateY(0px);
-
-}
-100%{
-    
-    transform: translateY(8px);
-    }
-}
-.swiper-container {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide img {
-  width: 100%;
-  height: 200px; /* Adjust the height as needed */
-}
 </style>
